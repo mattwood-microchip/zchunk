@@ -52,6 +52,17 @@ if openssl_dep.found()
     endif
 endif
 
+# afalg kernel interface
+if build_machine.system() == 'linux'
+    afalg = get_option('with-afalg')
+    if afalg == true
+        if openssl_dep.found()
+            error('Cannot enable openssl and afalg at the same time')
+        endif
+        add_project_arguments('-DZCHUNK_AFALG', language : 'c')
+    endif
+endif
+
 # includes
 inc = []
 inc += include_directories('include')

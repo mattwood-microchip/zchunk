@@ -4,3 +4,5 @@ cov-int
 /subprojects/zstd-*
 test/abi/new
 test/abi/stable/ABI.dump
+.vscode
+

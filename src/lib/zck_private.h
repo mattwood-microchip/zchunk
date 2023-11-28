@@ -12,6 +12,8 @@
 
 #if defined(ZCHUNK_OPENSSL) && !defined(ZCHUNK_OPENSSL_DEPRECATED)
 #include <openssl/evp.h>
+#elif defined(ZCHUNK_AFALG)
+#include "hash/afalg/afalg_priv.h"
 #endif
 
 #define BUF_SIZE 32768
@@ -114,6 +116,8 @@ struct zckHash {
     zckHashType *type;
 #if defined(ZCHUNK_OPENSSL) && !defined(ZCHUNK_OPENSSL_DEPRECATED)
     EVP_MD_CTX *ctx;
+#elif defined(ZCHUNK_AFALG)
+    afalgCtx *ctx;
 #else
     void *ctx;
 #endif

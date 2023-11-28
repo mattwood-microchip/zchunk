@@ -35,6 +35,8 @@
 
 #if defined(ZCHUNK_OPENSSL)
 #include "openssl/openssl.h"
+#elif defined(ZCHUNK_AFALG)
+#include "afalg/afalg.h"
 #else
 /***** Using bundled sha libraries *****/
 #include "bundled/libsha.h"

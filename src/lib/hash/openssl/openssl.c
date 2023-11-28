@@ -51,7 +51,7 @@ bool lib_hash_init(zckCtx *zck, zckHash *hash)
                 SHA1_Init((SHA_CTX *) hash->ctx);
                 return true;
         } else if(hash->type->type == ZCK_HASH_SHA256) {
-                 zck_log(ZCK_LOG_DDEBUG, "Initializing SHA-256 hash");
+                zck_log(ZCK_LOG_DDEBUG, "Initializing SHA-256 hash");
                 hash->ctx = zmalloc(sizeof(SHA256_CTX));
                 if (!hash->ctx) {
                         zck_log(ZCK_LOG_ERROR, "OOM in %s", __func__);
